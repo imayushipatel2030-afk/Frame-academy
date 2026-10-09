@@ -1,0 +1,723 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0b0b0b;
+  color: white;
+}
+
+/* ================= NAVBAR ================= */
+
+.navbar {
+  height: 75px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  background: rgba(10, 10, 10, 0.95);
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  z-index: 1000;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.logo {
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 3px;
+}
+
+.logo span {
+  color: #f5b642;
+}
+
+.nav-links {
+  display: flex;
+  gap: 35px;
+}
+
+.nav-links a {
+  color: #ddd;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.nav-links a:hover {
+  color: #f5b642;
+}
+
+/* ================= HERO ================= */
+
+.hero {
+  min-height: 100vh;
+
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  padding: 100px 7%;
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 80% 30%,
+      rgba(245, 182, 66, 0.15),
+      transparent 35%
+    ),
+    linear-gradient(135deg, #111 0%, #050505 100%);
+}
+
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -150px;
+  bottom: -200px;
+
+  border: 1px solid rgba(245, 182, 66, 0.2);
+
+  border-radius: 50%;
+}
+
+.hero::after {
+  content: "";
+
+  position: absolute;
+
+  width: 350px;
+  height: 350px;
+
+  right: -80px;
+  bottom: -120px;
+
+  border: 1px solid rgba(245, 182, 66, 0.15);
+
+  border-radius: 50%;
+}
+
+.hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0, 0, 0, 0.9),
+      rgba(0, 0, 0, 0.3)
+    );
+}
+
+.hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 750px;
+}
+
+.hero-tag {
+  color: #f5b642;
+
+  font-size: 13px;
+
+  letter-spacing: 4px;
+
+  font-weight: 600;
+
+  margin-bottom: 25px;
+}
+
+.hero h1 {
+  font-size: clamp(55px, 8vw, 100px);
+
+  line-height: 0.95;
+
+  letter-spacing: -4px;
+
+  margin-bottom: 30px;
+
+  font-weight: 800;
+}
+
+.hero h1 span {
+  color: #f5b642;
+}
+
+.hero-description {
+  max-width: 580px;
+
+  color: #bdbdbd;
+
+  font-size: 18px;
+
+  line-height: 1.7;
+
+  margin-bottom: 35px;
+}
+
+/* ================= BUTTONS ================= */
+
+.hero-buttons {
+  display: flex;
+
+  gap: 15px;
+
+  flex-wrap: wrap;
+}
+
+.primary-btn,
+.secondary-btn {
+  padding: 15px 25px;
+
+  text-decoration: none;
+
+  font-size: 14px;
+
+  font-weight: 700;
+
+  transition: 0.3s;
+}
+
+.primary-btn {
+  background: #f5b642;
+
+  color: #111;
+}
+
+.primary-btn:hover {
+  transform: translateY(-3px);
+
+  background: white;
+}
+
+.secondary-btn {
+  border: 1px solid #555;
+
+  color: white;
+}
+
+.secondary-btn:hover {
+  border-color: #f5b642;
+
+  color: #f5b642;
+}
+
+/* ================= SCROLL ================= */
+
+.hero-scroll {
+  position: absolute;
+
+  right: 7%;
+  bottom: 40px;
+
+  font-size: 10px;
+
+  letter-spacing: 3px;
+
+  color: #777;
+
+  writing-mode: vertical-rl;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 5%;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .nav-links {
+    gap: 15px;
+  }
+
+  .nav-links a {
+    font-size: 11px;
+  }
+
+  .hero {
+    padding: 100px 5% 60px;
+  }
+
+  .hero h1 {
+    font-size: 55px;
+
+    letter-spacing: -2px;
+  }
+
+  .hero-description {
+    font-size: 16px;
+  }
+
+  .hero-scroll {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .nav-links {
+    gap: 8px;
+  }
+
+  .nav-links a {
+    font-size: 10px;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+
+    align-items: flex-start;
+  }
+}
+/* ================= ABOUT SECTION ================= */
+
+.about-section {
+  padding: 100px 7%;
+  background-color: #f4f1ea;
+  color: #111;
+}
+
+.section-label {
+  font-size: 12px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  color: #777;
+  margin-bottom: 50px;
+}
+
+.about-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 70px;
+  align-items: start;
+}
+
+.about-content h2 {
+  font-size: 60px;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.about-content h2 span {
+  color: #b17b19;
+}
+
+.about-text {
+  max-width: 500px;
+}
+
+.about-text p {
+  font-size: 17px;
+  line-height: 1.8;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+/* ================= ABOUT MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .about-section {
+    padding: 70px 5%;
+  }
+
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .about-content h2 {
+    font-size: 42px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+}
+
+css
+/* ================= COURSES SECTION ================= */
+
+.courses-section {
+  padding: 100px 7%;
+  background-color: #0b0b0b;
+  color: white;
+}
+
+.courses-section .section-label {
+  color: #888;
+  margin-bottom: 50px;
+}
+
+.courses-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 40px;
+  margin-bottom: 60px;
+}
+
+.courses-heading h2 {
+  font-size: 60px;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin: 0;
+}
+
+.courses-heading p {
+  max-width: 400px;
+  color: #888;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.courses-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 25px;
+}
+
+.course-card {
+  min-height: 380px;
+  padding: 35px;
+
+  background-color: #111;
+
+  border: 1px solid #292929;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  transition: 0.3s;
+}
+
+.course-card:hover {
+  border-color: #f5b642;
+  transform: translateY(-8px);
+}
+
+.course-number {
+  color: #f5b642;
+  font-size: 14px;
+  letter-spacing: 2px;
+}
+
+.course-card h3 {
+  font-size: 38px;
+  margin: 40px 0 20px;
+}
+
+.course-card p {
+  color: #999;
+  line-height: 1.7;
+  font-size: 15px;
+  max-width: 500px;
+}
+
+.course-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  border-top: 1px solid #292929;
+
+  padding-top: 20px;
+  margin-top: 40px;
+}
+
+.course-bottom span {
+  color: #777;
+  font-size: 13px;
+}
+
+.course-bottom a {
+  color: #f5b642;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.course-bottom a:hover {
+  color: white;
+}
+
+/* ================= COURSES MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .courses-section {
+    padding: 70px 5%;
+  }
+
+  .courses-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 25px;
+  }
+
+  .courses-heading h2 {
+    font-size: 42px;
+  }
+
+  .courses-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .course-card {
+    min-height: 330px;
+    padding: 30px;
+  }
+
+  .course-card h3 {
+    font-size: 32px;
+  }
+}
+
+css
+/* ================= INQUIRY SECTION ================= */
+
+.inquiry-section {
+  padding: 100px 7%;
+  background-color: #f4f1ea;
+  color: #111;
+}
+
+.inquiry-section .section-label {
+  color: #777;
+  margin-bottom: 60px;
+}
+
+.inquiry-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+/* ================= LEFT CONTENT ================= */
+
+.inquiry-info h2 {
+  font-size: 60px;
+  line-height: 1.05;
+  letter-spacing: -2px;
+  margin: 0 0 30px;
+}
+
+.inquiry-info h2 span {
+  color: #b17b19;
+}
+
+.inquiry-info p {
+  max-width: 450px;
+  color: #555;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+/* ================= FORM ================= */
+
+.inquiry-form {
+  background-color: white;
+  padding: 40px;
+  border: 1px solid #ddd;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  font-size: 13px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 15px;
+
+  border: 1px solid #ccc;
+  background-color: #fafafa;
+
+  font-size: 15px;
+
+  outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #b17b19;
+}
+
+/* ================= BUTTON ================= */
+
+.inquiry-btn {
+  width: 100%;
+  padding: 16px;
+
+  border: none;
+
+  background-color: #111;
+  color: white;
+
+  font-size: 14px;
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.inquiry-btn:hover {
+  background-color: #b17b19;
+}
+
+/* ================= MESSAGES ================= */
+
+.success-message {
+  margin-top: 20px;
+  color: green;
+  font-weight: bold;
+}
+
+.error-message {
+  margin-top: 20px;
+  color: red;
+  font-weight: bold;
+}
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 768px) {
+
+  .inquiry-section {
+    padding: 70px 5%;
+  }
+
+  .inquiry-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .inquiry-info h2 {
+    font-size: 42px;
+  }
+
+  .inquiry-info p {
+    font-size: 16px;
+  }
+
+  .inquiry-form {
+    padding: 25px;
+  }
+}
+
+css
+/* ================= ADMISSION SECTION ================= */
+
+.admission-section {
+  padding: 100px 7%;
+  background-color: #111;
+  color: white;
+  text-align: center;
+}
+
+.admission-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.admission-label {
+  color: #f5b642;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: bold;
+  margin-bottom: 40px;
+}
+
+.admission-content h2 {
+  font-size: 65px;
+  line-height: 1;
+  letter-spacing: -3px;
+  margin-bottom: 30px;
+}
+
+.admission-content h2 span {
+  color: #f5b642;
+}
+
+.admission-content p {
+  max-width: 600px;
+  margin: 0 auto 35px;
+  color: #999;
+  font-size: 17px;
+  line-height: 1.8;
+}
+
+.admission-btn {
+  display: inline-block;
+  padding: 16px 28px;
+  background-color: #f5b642;
+  color: #111;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.admission-btn:hover {
+  background-color: white;
+  transform: translateY(-3px);
+}
+
+/* ================= ADMISSION MOBILE ================= */
+
+@media (max-width: 768px) {
+  .admission-section {
+    padding: 70px 5%;
+  }
+
+  .admission-content h2 {
+    font-size: 45px;
+    letter-spacing: -2px;
+  }
+
+  .admission-content p {
+    font-size: 16px;
+  }
+}
+

@@ -1,0 +1,33 @@
+# Dependencies
+**/node_modules/
+
+# Build files
+**/dist/
+**/dist-ssr/
+
+# Environment variables and secrets
+**/.env
+**/.env.*
+!**/.env.example
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+pnpm-debug.log*
+yarn-debug.log*
+lerna-debug.log*
+
+# Temporary files
+*.local
+*.tmp
+*.temp
+
+# Editor files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+Desktop.ini
